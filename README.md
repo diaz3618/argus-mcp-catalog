@@ -1,0 +1,1 @@
+# argus-mcp-catalog
