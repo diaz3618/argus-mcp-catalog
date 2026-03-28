@@ -1,0 +1,15 @@
+name: "GitLab MCP Server (containerized)"
+description: "Interact with GitLab repositories and CI pipelines. Runs in a container with outbound network access for GitLab API calls."
+
+gitlab:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@modelcontextprotocol/server-gitlab"
+  env:
+    GITLAB_PERSONAL_ACCESS_TOKEN: "${GITLAB_PERSONAL_ACCESS_TOKEN}"
+    GITLAB_API_URL: "${GITLAB_API_URL}"
+  container:
+    enabled: true
+    network: bridge

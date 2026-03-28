@@ -1,0 +1,12 @@
+name: "GitLab MCP Server (subprocess)"
+description: "Interact with GitLab repositories, merge requests, issues, and CI pipelines. Runs as a subprocess via npx."
+
+gitlab:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@modelcontextprotocol/server-gitlab"
+  env:
+    GITLAB_PERSONAL_ACCESS_TOKEN: "${GITLAB_PERSONAL_ACCESS_TOKEN}"
+    GITLAB_API_URL: "${GITLAB_API_URL}"

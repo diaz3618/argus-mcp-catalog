@@ -1,0 +1,12 @@
+name: "Kubernetes MCP Server (containerized)"
+description: "Manage Kubernetes clusters via kubectl. Runs in a container with outbound network access for Kubernetes API server calls."
+
+kubernetes:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "mcp-server-kubernetes"
+  container:
+    enabled: true
+    network: bridge

@@ -1,0 +1,9 @@
+name: "Kubernetes MCP Server (subprocess)"
+description: "Manage Kubernetes clusters — list pods, deployments, services, and namespaces via kubectl. Uses local kubeconfig. Runs as a subprocess via npx."
+
+kubernetes:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "mcp-server-kubernetes"
