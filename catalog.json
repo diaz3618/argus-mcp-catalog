@@ -1,0 +1,62 @@
+{
+  "categories": {
+    "filesystem-access": [
+      "filesystem.yaml",
+      "filesystem-container.yaml",
+      "git.yaml",
+      "git-container.yaml"
+    ],
+    "web-research": [
+      "context7.yaml",
+      "context7-container.yaml",
+      "fetch.yaml",
+      "fetch-container.yaml",
+      "brave-search.yaml",
+      "brave-search-container.yaml"
+    ],
+    "databases": [
+      "supabase.yaml",
+      "supabase-container.yaml",
+      "postgres.yaml",
+      "postgres-container.yaml"
+    ],
+    "ai-memory": [
+      "memory.yaml",
+      "memory-container.yaml",
+      "memory-bank-mcp.yaml",
+      "memory-bank-mcp-container.yaml"
+    ],
+    "devops-integrations": [
+      "github.yaml",
+      "gitlab.yaml",
+      "gitlab-container.yaml",
+      "kubernetes.yaml",
+      "kubernetes-container.yaml"
+    ],
+    "security-tools": [
+      "snyk.yaml",
+      "snyk-container.yaml",
+      "analyzer.yaml",
+      "analyzer-container.yaml"
+    ],
+    "remote-sse": [
+      "deepwiki.yaml",
+      "microsoft-learn.yaml"
+    ],
+    "remote-http": [
+      "semgrep.yaml",
+      "plantuml.yaml"
+    ],
+    "remote-auth": [
+      "smithery-connect.yaml",
+      "mcp-remote.yaml"
+    ],
+    "fully-isolated": [
+      "sequential-thinking.yaml",
+      "sequential-thinking-container.yaml",
+      "time.yaml",
+      "time-container.yaml"
+    ]
+  },
+  "updated_at": "2026-03-28T00:00:00Z"
+}
