@@ -1,0 +1,6 @@
+name: "PlantUML MCP Server (remote streamable-HTTP)"
+description: "Generate UML diagrams from text descriptions using the PlantUML MCP server hosted on Smithery. No authentication required."
+
+plantuml:
+  type: streamable-http
+  url: https://smithery.ai/servers/infobip/plantuml-mcp-server

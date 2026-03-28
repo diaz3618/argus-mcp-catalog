@@ -1,0 +1,6 @@
+name: "Microsoft Learn (remote streamable-HTTP)"
+description: "Search and retrieve Microsoft documentation and learning content via the Microsoft Learn MCP endpoint. No authentication required."
+
+microsoft-learn:
+  type: streamable-http
+  url: https://learn.microsoft.com/api/mcp

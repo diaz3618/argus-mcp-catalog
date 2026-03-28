@@ -1,0 +1,6 @@
+name: "DeepWiki (remote streamable-HTTP)"
+description: "Ask questions about any public GitHub repository using DeepWiki's free hosted MCP endpoint. No authentication required."
+
+deepwiki:
+  type: streamable-http
+  url: https://mcp.deepwiki.com/mcp

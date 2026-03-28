@@ -1,0 +1,8 @@
+name: "Semgrep (remote streamable-HTTP)"
+description: "Static analysis and security scanning via Semgrep's hosted MCP endpoint. Requires a Semgrep API token."
+
+semgrep:
+  type: streamable-http
+  url: https://mcp.semgrep.ai/mcp
+  headers:
+    Authorization: "Bearer ${SEMGREP_TOKEN}"
