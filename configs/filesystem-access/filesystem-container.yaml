@@ -1,0 +1,15 @@
+name: "Filesystem Server (containerized)"
+description: "Read and write local files via the Model Context Protocol. Runs in an isolated container with a volume mount."
+
+filesystem:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@modelcontextprotocol/server-filesystem"
+    - "/projects"
+  container:
+    enabled: true
+    network: none
+    volumes:
+      - "$HOME/projects:/projects"

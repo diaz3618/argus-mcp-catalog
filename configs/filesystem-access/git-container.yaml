@@ -1,0 +1,15 @@
+name: "Git Server (containerized)"
+description: "Interact with Git repositories. Runs in an isolated container with read-only workspace mount."
+
+git:
+  type: stdio
+  command: uvx
+  args:
+    - "mcp-server-git"
+    - "--repository"
+    - "/workspace"
+  container:
+    enabled: true
+    network: none
+    volumes:
+      - "$HOME/projects:/workspace:ro"

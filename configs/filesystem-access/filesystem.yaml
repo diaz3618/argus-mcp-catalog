@@ -1,0 +1,10 @@
+name: "Filesystem Server (subprocess)"
+description: "Read and write local files via the Model Context Protocol. Runs as a subprocess via npx."
+
+filesystem:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@modelcontextprotocol/server-filesystem"
+    - "/projects"

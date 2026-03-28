@@ -1,0 +1,10 @@
+name: "Git Server (subprocess)"
+description: "Interact with Git repositories — read commits, diffs, branches, and file history. Runs as a subprocess via uvx."
+
+git:
+  type: stdio
+  command: uvx
+  args:
+    - "mcp-server-git"
+    - "--repository"
+    - "/workspace"
