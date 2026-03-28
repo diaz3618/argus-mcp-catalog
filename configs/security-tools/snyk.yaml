@@ -1,0 +1,15 @@
+name: "Snyk MCP Server (subprocess)"
+description: "Scan code and dependencies for security vulnerabilities using Snyk. Runs as a subprocess via npx. Requires a Snyk token."
+
+snyk:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "snyk@latest"
+    - "mcp"
+    - "-t"
+    - "stdio"
+  env:
+    SNYK_TOKEN: "${SNYK_TOKEN}"
+    SNYK_MCP_PROFILE: "experimental"

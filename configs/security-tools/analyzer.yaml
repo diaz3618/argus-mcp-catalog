@@ -1,0 +1,8 @@
+name: "Code Analyzer (subprocess)"
+description: "Static code analysis for Python using ruff and vulture. Identifies unused code, style violations, and potential bugs. Runs as a subprocess via uvx."
+
+analyzer:
+  type: stdio
+  command: uvx
+  args:
+    - "mcp-server-analyzer"

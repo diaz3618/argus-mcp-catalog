@@ -1,0 +1,11 @@
+name: "Code Analyzer (containerized — network isolated)"
+description: "Static code analysis using ruff and vulture. Runs in a fully network-isolated container — all analysis is local, no outbound connections."
+
+analyzer:
+  type: stdio
+  command: uvx
+  args:
+    - "mcp-server-analyzer"
+  container:
+    enabled: true
+    network: none
