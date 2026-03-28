@@ -1,0 +1,12 @@
+name: "Memory Server (containerized — network isolated)"
+description: "Persistent knowledge graph. Runs in a fully network-isolated container — all storage is in-process, no external calls."
+
+memory:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@modelcontextprotocol/server-memory"
+  container:
+    enabled: true
+    network: none

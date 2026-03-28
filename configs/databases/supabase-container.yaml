@@ -1,0 +1,14 @@
+name: "Supabase MCP Server (containerized)"
+description: "Manage Supabase projects and databases. Runs in a container with outbound network access for Supabase API calls."
+
+supabase:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@supabase/mcp-server-supabase@latest"
+    - "--access-token"
+    - "${SUPABASE_ACCESS_TOKEN}"
+  container:
+    enabled: true
+    network: bridge

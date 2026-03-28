@@ -1,0 +1,10 @@
+name: "PostgreSQL Server (subprocess)"
+description: "Query and inspect PostgreSQL databases via the Model Context Protocol. Provide a connection string as a positional argument."
+
+postgres:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@modelcontextprotocol/server-postgres"
+    - "${POSTGRES_CONNECTION_STRING}"

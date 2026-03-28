@@ -1,0 +1,11 @@
+name: "Supabase MCP Server (subprocess)"
+description: "Manage Supabase projects, run SQL queries, and interact with your database via the Supabase MCP server. Requires a Supabase access token."
+
+supabase:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@supabase/mcp-server-supabase@latest"
+    - "--access-token"
+    - "${SUPABASE_ACCESS_TOKEN}"

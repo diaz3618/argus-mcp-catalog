@@ -1,0 +1,16 @@
+name: "Memory Bank MCP (containerized)"
+description: "Structured memory bank for AI assistants. Runs in a container with outbound network access for API synchronization."
+
+memory-bank-mcp:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@diazstg/memory-bank-mcp"
+    - "--mode"
+    - "code"
+    - "--username"
+    - "${MEMORY_BANK_USERNAME}"
+  container:
+    enabled: true
+    network: bridge

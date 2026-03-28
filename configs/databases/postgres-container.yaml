@@ -1,0 +1,13 @@
+name: "PostgreSQL Server (containerized)"
+description: "Query PostgreSQL databases. Runs in a container with outbound network access to reach your database endpoint."
+
+postgres:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@modelcontextprotocol/server-postgres"
+    - "${POSTGRES_CONNECTION_STRING}"
+  container:
+    enabled: true
+    network: bridge

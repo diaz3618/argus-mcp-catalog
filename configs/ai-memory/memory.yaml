@@ -1,0 +1,9 @@
+name: "Memory Server (subprocess)"
+description: "Persistent in-process knowledge graph for storing and retrieving entities and relations across conversations."
+
+memory:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@modelcontextprotocol/server-memory"
