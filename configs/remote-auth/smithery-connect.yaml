@@ -1,0 +1,8 @@
+name: "Smithery Connect (Bearer token auth)"
+description: "Connect to any Smithery-hosted MCP server using a Smithery API key. Demonstrates the Bearer token authentication pattern for remote MCP endpoints."
+
+smithery-connect:
+  type: streamable-http
+  url: "${SMITHERY_SERVER_URL}"
+  headers:
+    Authorization: "Bearer ${SMITHERY_API_KEY}"

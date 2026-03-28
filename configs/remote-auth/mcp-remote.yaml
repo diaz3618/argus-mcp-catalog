@@ -1,0 +1,10 @@
+name: "MCP Remote Proxy (OAuth 2.1 PKCE)"
+description: "Local OAuth proxy for connecting to remote MCP servers that require full OAuth 2.1 with PKCE. The mcp-remote process handles the authorization code flow and token refresh, then proxies tool calls to the remote server."
+
+mcp-remote:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "mcp-remote@latest"
+    - "${REMOTE_MCP_URL}"
