@@ -1,0 +1,11 @@
+name: "Time Server (containerized — network isolated)"
+description: "Current time and timezone tools. Runs in a fully network-isolated container — pure computation, no outbound connections."
+
+time:
+  type: stdio
+  command: uvx
+  args:
+    - "mcp-server-time"
+  container:
+    enabled: true
+    network: none

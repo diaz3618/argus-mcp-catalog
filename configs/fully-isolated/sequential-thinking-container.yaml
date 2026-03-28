@@ -1,0 +1,12 @@
+name: "Sequential Thinking (containerized — network isolated)"
+description: "Structured sequential reasoning. Runs in a fully network-isolated container — no outbound connections required."
+
+sequential-thinking:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@modelcontextprotocol/server-sequential-thinking"
+  container:
+    enabled: true
+    network: none

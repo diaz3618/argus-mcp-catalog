@@ -1,0 +1,8 @@
+name: "Time Server (subprocess)"
+description: "Provides current time and timezone conversion tools. Runs as a subprocess via uvx with no network access required."
+
+time:
+  type: stdio
+  command: uvx
+  args:
+    - "mcp-server-time"

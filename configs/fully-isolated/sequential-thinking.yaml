@@ -1,0 +1,9 @@
+name: "Sequential Thinking (subprocess)"
+description: "Structured sequential reasoning for complex problem-solving. Runs as a subprocess via npx with no network access required."
+
+sequential-thinking:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@modelcontextprotocol/server-sequential-thinking"
