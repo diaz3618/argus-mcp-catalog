@@ -1,0 +1,29 @@
+name: Lint Catalog
+
+on:
+  pull_request:
+    paths:
+      - "configs/**"
+      - "catalog.json"
+  push:
+    branches:
+      - main
+    paths:
+      - "configs/**"
+      - "catalog.json"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install js-yaml
+        run: npm install js-yaml
+
+      - name: Lint catalog YAML files
+        run: node scripts/lint-catalog.js
