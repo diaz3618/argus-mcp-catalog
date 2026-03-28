@@ -1,0 +1,14 @@
+name: "Context7 (containerized)"
+description: "Up-to-date library documentation via Context7. Runs in a container with outbound network access for API calls."
+
+context7:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@upstash/context7-mcp"
+    - "--api-key"
+    - "${CONTEXT7_API_KEY}"
+  container:
+    enabled: true
+    network: bridge

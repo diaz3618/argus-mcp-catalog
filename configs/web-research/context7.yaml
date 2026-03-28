@@ -1,0 +1,11 @@
+name: "Context7 (subprocess)"
+description: "Up-to-date library documentation and code examples via the Context7 MCP server. Requires a Context7 API key."
+
+context7:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@upstash/context7-mcp"
+    - "--api-key"
+    - "${CONTEXT7_API_KEY}"

@@ -1,0 +1,8 @@
+name: "Fetch Server (subprocess)"
+description: "Fetch web pages and convert them to Markdown for LLM consumption. Runs as a subprocess via uvx."
+
+fetch:
+  type: stdio
+  command: uvx
+  args:
+    - "mcp-server-fetch"

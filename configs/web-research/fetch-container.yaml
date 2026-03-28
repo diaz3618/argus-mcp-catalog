@@ -1,0 +1,11 @@
+name: "Fetch Server (containerized)"
+description: "Fetch and convert web pages to Markdown. Runs in a container with outbound network access."
+
+fetch:
+  type: stdio
+  command: uvx
+  args:
+    - "mcp-server-fetch"
+  container:
+    enabled: true
+    network: bridge
