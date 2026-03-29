@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "configs/**/*.yaml"
+  workflow_dispatch:
 
 concurrency:
   group: catalog-index-generation
