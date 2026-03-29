@@ -1,0 +1,16 @@
+name: "Notion MCP Server (containerized)"
+description: "Read and write Notion pages, databases, and blocks via the official Notion MCP server. Runs in a container with outbound network access."
+# Secrets: NOTION_TOKEN — set with: argus-mcp secrets set NOTION_TOKEN <your-notion-integration-token>
+# Create integration at: https://www.notion.so/my-integrations
+
+notion-container:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@notionhq/notion-mcp-server"
+  env:
+    OPENAPI_MCP_HEADERS: '{"Authorization": "Bearer ${NOTION_TOKEN}", "Notion-Version": "2022-06-28"}'
+  container:
+    enabled: true
+    network: bridge

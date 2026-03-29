@@ -1,0 +1,13 @@
+name: "Linear"
+description: "Manage Linear issues, projects, and teams. Runs as a subprocess."
+# Secrets: LINEAR_API_KEY — set with: argus-mcp secrets set LINEAR_API_KEY <your-linear-api-key>
+# Get key at: https://linear.app/settings/api
+
+linear:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@tacticlaunch/mcp-linear"
+  env:
+    LINEAR_API_KEY: "${LINEAR_API_KEY}"

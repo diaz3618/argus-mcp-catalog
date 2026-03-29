@@ -1,0 +1,16 @@
+name: "Kubernetes MCP (Go build, containerized)"
+description: "Manage Kubernetes clusters — list pods, deployments, services, and run kubectl-style operations. Compiled from Go source and runs in a container with kubeconfig volume mount."
+# Demonstrates: container.transport: go, container.go_package, volumes for kubeconfig
+# Secrets: requires ~/.kube/config — no API key needed if kubeconfig exists
+# Note: requires active Kubernetes cluster and valid kubeconfig to function
+
+mcp-k8s-container:
+  type: stdio
+  command: mcp-k8s
+  container:
+    enabled: true
+    transport: go
+    go_package: github.com/strowk/mcp-k8s-go
+    network: bridge
+    volumes:
+      - "${HOME}/.kube:/home/nonroot/.kube:ro"

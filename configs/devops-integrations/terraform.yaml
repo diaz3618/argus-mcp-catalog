@@ -1,0 +1,14 @@
+name: "Terraform MCP Server"
+description: "Interact with Terraform to plan and apply infrastructure changes via HashiCorp's official MCP server. Runs directly from the Docker Hub image."
+# Note: Uses hashicorp/terraform-mcp-server official Docker Hub image.
+# Argus container isolation is not applicable — this entry IS the containerized version.
+# Requires AWS/cloud credentials or Terraform backend config in your environment.
+
+terraform:
+  type: stdio
+  command: docker
+  args:
+    - "run"
+    - "-i"
+    - "--rm"
+    - "hashicorp/terraform-mcp-server"

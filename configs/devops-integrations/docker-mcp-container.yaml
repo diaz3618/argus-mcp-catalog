@@ -1,0 +1,17 @@
+name: "Docker MCP Server (containerized)"
+description: "Manage Docker containers, images, and volumes. Runs in a container with access to the host Docker socket."
+# Demonstrates: system_deps for docker-cli, volumes for Docker socket mount
+# Requires Docker running on host — socket mount grants full Docker API access
+
+docker-mcp-container:
+  type: stdio
+  command: uvx
+  args:
+    - "mcp-server-docker"
+  container:
+    enabled: true
+    network: bridge
+    system_deps:
+      - "docker-cli"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:rw"
