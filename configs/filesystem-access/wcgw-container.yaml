@@ -1,0 +1,17 @@
+name: "WCGW Shell Agent (containerized)"
+description: "General-purpose shell and code execution agent. Runs in an isolated container with a workspace volume mount."
+# Demonstrates: container.volumes for workspace access with network: none for safety
+# No API keys required — pure shell execution
+
+wcgw-container:
+  type: stdio
+  command: uvx
+  args:
+    - "wcgw"
+    - "--workspace"
+    - "/workspace"
+  container:
+    enabled: true
+    network: none
+    volumes:
+      - "${HOME}/projects:/workspace:rw"

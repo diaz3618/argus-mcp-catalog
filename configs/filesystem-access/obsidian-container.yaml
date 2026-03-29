@@ -1,0 +1,16 @@
+name: "Obsidian MCP Server (containerized)"
+description: "Read and write Obsidian vault notes via the Obsidian Local REST API plugin. Runs in a container with outbound network access to reach the local Obsidian instance."
+# Secrets: OBSIDIAN_API_KEY — set with: argus-mcp secrets set OBSIDIAN_API_KEY <your-obsidian-api-key>
+# Requires Obsidian running with the Local REST API community plugin enabled
+# Get API key from: Obsidian → Settings → Local REST API
+
+obsidian-container:
+  type: stdio
+  command: uvx
+  args:
+    - "mcp-obsidian"
+  env:
+    OBSIDIAN_API_KEY: "${OBSIDIAN_API_KEY}"
+  container:
+    enabled: true
+    network: bridge

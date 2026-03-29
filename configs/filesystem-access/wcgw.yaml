@@ -1,0 +1,9 @@
+name: "WCGW Shell Agent"
+description: "General-purpose shell and code execution agent. Runs as a subprocess with direct host filesystem access."
+# No API keys required — pure shell execution
+
+wcgw:
+  type: stdio
+  command: uvx
+  args:
+    - "wcgw"

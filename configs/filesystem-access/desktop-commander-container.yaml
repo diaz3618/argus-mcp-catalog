@@ -1,0 +1,16 @@
+name: "Desktop Commander (containerized)"
+description: "Terminal control and file editing for Claude. Runs in an isolated container with /tmp volume mount for file operations."
+# Demonstrates: container.volumes with network: none for terminal/filesystem tools
+# No API keys required
+
+desktop-commander-container:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@wonderwhy-er/desktop-commander"
+  container:
+    enabled: true
+    network: none
+    volumes:
+      - "/tmp:/tmp:rw"
