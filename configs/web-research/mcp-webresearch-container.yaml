@@ -1,0 +1,21 @@
+name: "Web Research MCP (containerized)"
+description: "Deep web research with real-time page fetching and content extraction. Built from source on GitHub — no npm package available. Runs in a container with outbound network access."
+# Demonstrates: container.source_url + build_steps + entrypoint for GitHub-only servers
+# No API keys required — uses public web access only
+# Source: https://github.com/mzxrai/mcp-webresearch
+
+mcp-webresearch-container:
+  type: stdio
+  command: node
+  args:
+    - "dist/index.js"
+  container:
+    enabled: true
+    network: bridge
+    source_url: https://github.com/mzxrai/mcp-webresearch.git
+    build_steps:
+      - "npm install"
+      - "npm run build"
+    entrypoint:
+      - "node"
+      - "dist/index.js"
