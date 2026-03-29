@@ -1,0 +1,13 @@
+name: "Exa Search"
+description: "Semantic web search powered by Exa AI. Runs as a subprocess."
+# Secrets: EXA_API_KEY — set with: argus-mcp secrets set EXA_API_KEY <your-exa-api-key>
+# Get key at: https://dashboard.exa.ai/api-keys
+
+exa:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "exa-mcp-server"
+  env:
+    EXA_API_KEY: "${EXA_API_KEY}"

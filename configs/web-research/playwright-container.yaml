@@ -1,0 +1,20 @@
+name: "Playwright MCP (containerized)"
+description: "Browser automation and web scraping via Playwright. Runs in a container with system browser dependencies installed."
+# Demonstrates: container.system_deps for OS-level packages (chromium)
+# No secrets required for basic use
+
+playwright-container:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@playwright/mcp"
+  container:
+    enabled: true
+    network: bridge
+    system_deps:
+      - "chromium"
+      - "chromium-chromedriver"
+      - "dbus"
+      - "dbus-x11"
+      - "xvfb"
