@@ -1,0 +1,46 @@
+# DOCS_DISPATCH_TOKEN Setup
+#
+# This workflow requires a fine-grained Personal Access Token stored as a
+# repository secret in argus-mcp-catalog named DOCS_DISPATCH_TOKEN.
+#
+# To create the token:
+#   1. Go to: GitHub.com → Settings → Developer settings →
+#              Personal access tokens → Fine-grained tokens → Generate new token
+#   2. Token name: argus-mcp-docs-dispatch
+#   3. Resource owner: diaz3618
+#   4. Repository access: Only select repositories → argus-mcp-docs
+#   5. Permissions:
+#        Repository permissions → Actions: Read and Write
+#        (Metadata: Read is auto-selected — leave it)
+#        All other permissions: No access
+#   6. Generate token and copy the value
+#
+# To store the secret:
+#   argus-mcp-catalog → Settings → Secrets and variables → Actions →
+#   New repository secret → Name: DOCS_DISPATCH_TOKEN → paste token value
+
+name: Notify Docs Rebuild
+
+on:
+  workflow_run:
+    workflows: ["Generate Catalog Index"]
+    types: [completed]
+    branches: [main]
+
+jobs:
+  dispatch:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger argus-mcp-docs rebuild
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_DISPATCH_TOKEN }}
+        run: |
+          if ! gh workflow run deploy.yml \
+               --repo diaz3618/argus-mcp-docs \
+               --ref main; then
+            echo "ERROR: Failed to dispatch deploy.yml on argus-mcp-docs" >&2
+            echo "Check that DOCS_DISPATCH_TOKEN has actions:write on diaz3618/argus-mcp-docs" >&2
+            exit 1
+          fi
+          echo "Dispatch succeeded — deploy.yml queued on argus-mcp-docs"
