@@ -1,62 +1,62 @@
 {
   "categories": {
-    "filesystem-access": [
-      "filesystem.yaml",
-      "filesystem-container.yaml",
-      "git.yaml",
-      "git-container.yaml"
-    ],
-    "web-research": [
-      "context7.yaml",
-      "context7-container.yaml",
-      "fetch.yaml",
-      "fetch-container.yaml",
-      "brave-search.yaml",
-      "brave-search-container.yaml"
+    "ai-memory": [
+      "memory-bank-mcp-container.yaml",
+      "memory-bank-mcp.yaml",
+      "memory-container.yaml",
+      "memory.yaml"
     ],
     "databases": [
-      "supabase.yaml",
-      "supabase-container.yaml",
+      "postgres-container.yaml",
       "postgres.yaml",
-      "postgres-container.yaml"
-    ],
-    "ai-memory": [
-      "memory.yaml",
-      "memory-container.yaml",
-      "memory-bank-mcp.yaml",
-      "memory-bank-mcp-container.yaml"
+      "supabase-container.yaml",
+      "supabase.yaml"
     ],
     "devops-integrations": [
       "github.yaml",
-      "gitlab.yaml",
       "gitlab-container.yaml",
-      "kubernetes.yaml",
-      "kubernetes-container.yaml"
+      "gitlab.yaml",
+      "kubernetes-container.yaml",
+      "kubernetes.yaml"
     ],
-    "security-tools": [
-      "snyk.yaml",
-      "snyk-container.yaml",
-      "analyzer.yaml",
-      "analyzer-container.yaml"
+    "filesystem-access": [
+      "filesystem-container.yaml",
+      "filesystem.yaml",
+      "git-container.yaml",
+      "git.yaml"
+    ],
+    "fully-isolated": [
+      "sequential-thinking-container.yaml",
+      "sequential-thinking.yaml",
+      "time-container.yaml",
+      "time.yaml"
+    ],
+    "remote-auth": [
+      "mcp-remote.yaml",
+      "smithery-connect.yaml"
+    ],
+    "remote-http": [
+      "plantuml.yaml",
+      "semgrep.yaml"
     ],
     "remote-sse": [
       "deepwiki.yaml",
       "microsoft-learn.yaml"
     ],
-    "remote-http": [
-      "semgrep.yaml",
-      "plantuml.yaml"
+    "security-tools": [
+      "analyzer-container.yaml",
+      "analyzer.yaml",
+      "snyk-container.yaml",
+      "snyk.yaml"
     ],
-    "remote-auth": [
-      "smithery-connect.yaml",
-      "mcp-remote.yaml"
-    ],
-    "fully-isolated": [
-      "sequential-thinking.yaml",
-      "sequential-thinking-container.yaml",
-      "time.yaml",
-      "time-container.yaml"
+    "web-research": [
+      "brave-search-container.yaml",
+      "brave-search.yaml",
+      "context7-container.yaml",
+      "context7.yaml",
+      "fetch-container.yaml",
+      "fetch.yaml"
     ]
   },
-  "updated_at": "2026-03-28T00:00:00Z"
+  "updated_at": "2026-03-29T01:49:34.028Z"
 }
