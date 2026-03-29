@@ -1,0 +1,11 @@
+name: "Redis Server"
+description: "Interact with Redis key-value stores. Runs as a subprocess."
+# Secrets: REDIS_URL — set with: argus-mcp secrets set REDIS_URL redis://localhost:6379
+
+redis:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@modelcontextprotocol/server-redis"
+    - "${REDIS_URL}"

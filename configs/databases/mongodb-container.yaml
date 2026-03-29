@@ -1,0 +1,15 @@
+name: "MongoDB Server (containerized)"
+description: "Connect to MongoDB databases. Runs in a container with outbound network access to reach your MongoDB endpoint."
+# Secrets: MONGODB_CONNECTION_STRING — set with: argus-mcp secrets set MONGODB_CONNECTION_STRING mongodb://user:pass@host:27017/db
+
+mongodb-container:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "mongodb-mcp-server"
+  env:
+    MDB_MCP_CONNECTION_STRING: "${MONGODB_CONNECTION_STRING}"
+  container:
+    enabled: true
+    network: bridge

@@ -1,0 +1,17 @@
+name: "SQLite Server (containerized)"
+description: "Query and manage SQLite databases. Runs in an isolated container with a host volume mount for database file access."
+# Secrets: none required
+# Demonstrates: container.volumes (data persistence), network: none (fully isolated)
+
+sqlite-container:
+  type: stdio
+  command: uvx
+  args:
+    - "mcp-server-sqlite"
+    - "--db-path"
+    - "/data/db.sqlite"
+  container:
+    enabled: true
+    network: none
+    volumes:
+      - "${HOME}/.mcp-data/sqlite:/data:rw"

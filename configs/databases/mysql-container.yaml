@@ -1,0 +1,15 @@
+name: "MySQL Server (containerized)"
+description: "Connect to MySQL databases. Runs in a container with outbound network access to reach your MySQL endpoint."
+# Secrets: MYSQL_CONNECTION_STRING — set with: argus-mcp secrets set MYSQL_CONNECTION_STRING mysql://user:pass@host:3306/db
+
+mysql-container:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@f4ww4z/mcp-mysql-server"
+  env:
+    MYSQL_CONNECTION_STRING: "${MYSQL_CONNECTION_STRING}"
+  container:
+    enabled: true
+    network: bridge

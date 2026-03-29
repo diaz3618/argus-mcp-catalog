@@ -1,0 +1,16 @@
+name: "Neon Serverless Postgres (containerized)"
+description: "Manage Neon serverless PostgreSQL projects and databases via the Neon API. Runs in a container with outbound network access."
+# Secrets: NEON_API_KEY — set with: argus-mcp secrets set NEON_API_KEY <your-neon-api-key>
+# Get key at: https://console.neon.tech/app/settings/api-keys
+
+neon-container:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@neondatabase/mcp-server-neon"
+    - "start"
+    - "${NEON_API_KEY}"
+  container:
+    enabled: true
+    network: bridge

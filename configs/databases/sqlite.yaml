@@ -1,0 +1,10 @@
+name: "SQLite Server"
+description: "Query and manage SQLite databases. Runs as a subprocess with direct host filesystem access."
+
+sqlite:
+  type: stdio
+  command: uvx
+  args:
+    - "mcp-server-sqlite"
+    - "--db-path"
+    - "/path/to/your/database.sqlite"
