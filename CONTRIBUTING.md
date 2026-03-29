@@ -76,6 +76,72 @@ filesystem-container:
       - "/home/user/projects:/workspace:ro"
 ```
 
+### Advanced example — source build (GitHub-only server)
+
+For MCP servers not published to npm or PyPI — built directly from a GitHub repository:
+
+```yaml
+name: "My GitHub Server (containerized)"
+description: "Server available only on GitHub. Built from source at container build time."
+
+my-github-server-container:
+  type: stdio
+  command: node
+  args: ["dist/index.js"]
+  container:
+    enabled: true
+    network: bridge
+    source_url: https://github.com/owner/my-mcp-server.git
+    build_steps:
+      - "npm install"
+      - "npm run build"
+    entrypoint:
+      - "node"
+      - "dist/index.js"
+```
+
+**Required:** `container.source_url` requires both `build_steps` and `entrypoint`. Omitting either causes a validation error. `build_steps` entries cannot contain backticks, `$()`, or `()`.
+
+### Advanced example — Go transport
+
+For MCP servers written in Go and published as Go modules:
+
+```yaml
+name: "Kubernetes MCP (Go build)"
+description: "Manage Kubernetes clusters. Compiled from Go source."
+
+kubernetes-go-container:
+  type: stdio
+  command: mcp-k8s
+  container:
+    transport: go
+    go_package: github.com/strowk/mcp-k8s-go
+    network: bridge
+    volumes:
+      - "${HOME}/.kube:/home/nonroot/.kube:ro"
+```
+
+**Required:** Use `container.transport: go` together with `container.go_package` to specify the Go module path. The binary is compiled via `go install` and invoked directly.
+
+### Advanced example — custom Dockerfile
+
+For servers with complex build requirements beyond what standard fields support. The Dockerfile must be co-located with the YAML file (no `..` path components allowed):
+
+```yaml
+name: "Custom Server (containerized)"
+description: "Server requiring a custom build environment."
+
+custom-server-container:
+  type: stdio
+  command: python
+  args: ["-m", "my_server"]
+  container:
+    dockerfile: custom-server-container.dockerfile
+    network: none
+```
+
+The file `custom-server-container.dockerfile` must exist in the **same directory** as `custom-server-container.yaml` — e.g., `configs/my-category/custom-server-container.dockerfile`.
+
 ### Full example — remote SSE server
 
 ```yaml
@@ -117,6 +183,19 @@ semgrep:
 | `container.image` | optional | string | Docker image name |
 | `container.network` | optional | string | `none` or `bridge` |
 | `container.volumes` | optional | string[] | Volume mount specs |
+| `container.source_url` | optional | string | Git repository URL for GitHub-only servers. Requires `build_steps` and `entrypoint`. |
+| `container.build_steps` | optional | string[] | Build commands run after cloning `source_url`. No shell metacharacters (backticks, `$()`, `()`). |
+| `container.entrypoint` | optional | string[] | Container entrypoint for source builds. Required when `source_url` is set. |
+| `container.build_env` | optional | object | Environment variables available only during the build stage. |
+| `container.source_ref` | optional | string | Git branch, tag, or commit SHA to check out (default: default branch). |
+| `container.dockerfile` | optional | string | Path to a co-located Dockerfile (no `..` allowed). Overrides auto-generated template. |
+| `container.transport` | optional | string | Transport override: `uvx`, `npx`, or `go`. Use `go` with `go_package` for Go modules. |
+| `container.go_package` | optional | string | Go module path for `go install`. Required when `transport: go`. |
+| `container.system_deps` | optional | string[] | OS packages installed in the runtime container image. |
+| `container.build_system_deps` | optional | string[] | OS packages installed only in the builder stage (not in final image). |
+| `container.memory` | optional | string | Memory limit (e.g., `512m`, `1g`). Default: `512m`. |
+| `container.cpus` | optional | string | CPU limit (e.g., `0.5`, `2`). Default: `1`. |
+| `container.extra_args` | optional | string[] | Additional arguments passed directly to `docker run`. |
 
 **Security:** Never store real tokens or passwords in YAML files. Always use
 `${ENV_VAR}` placeholder syntax for any credential values.
@@ -130,13 +209,18 @@ semgrep:
 | Native subprocess | `{server}.yaml` | `filesystem.yaml` |
 | Docker container variant | `{server}-container.yaml` | `filesystem-container.yaml` |
 | Remote (SSE / HTTP / OAuth) | `{server}.yaml` | `deepwiki.yaml` |
+| Custom Dockerfile | `{server}-container.dockerfile` | `filesystem-container.dockerfile` |
 
 Rules:
+
 - Use lowercase kebab-case only.
 - Container variants always end in `-container.yaml`.
 - Remote servers never have a `-container.yaml` variant (they are not run locally).
 - The backend slug key inside the YAML must match the filename stem
   (e.g., `filesystem-container:` in `filesystem-container.yaml`).
+- Dockerfiles must be co-located with their paired YAML file in `configs/<category>/`.
+- The YAML entry references the Dockerfile by filename only: `container.dockerfile: {server}-container.dockerfile`.
+- Never use `..` path components in `container.dockerfile` values — the validator will reject them.
 
 ---
 
@@ -155,10 +239,12 @@ Rules:
    update the `updated_at` field to the current ISO 8601 date.
 
 5. **Validate locally:**
+
    ```bash
    npm install js-yaml
    node scripts/lint-catalog.js
    ```
+
    The script must exit 0 with "All checks passed." before you open a PR.
 
 6. **Open a pull request** targeting `main`. The CI workflow will run
@@ -206,6 +292,7 @@ node scripts/lint-catalog.js
 ```
 
 Expected output:
+
 ```
 Checking catalog.json...
 Checked 37 files across 10 categories.
