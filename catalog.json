@@ -4,28 +4,47 @@
       "memory-bank-mcp-container.yaml",
       "memory-bank-mcp.yaml",
       "memory-container.yaml",
-      "memory.yaml"
+      "memory.yaml",
+      "qdrant-memory-container.yaml"
     ],
     "databases": [
+      "mongodb-container.yaml",
+      "mysql-container.yaml",
+      "mysql.yaml",
+      "neon-container.yaml",
       "postgres-container.yaml",
       "postgres.yaml",
+      "redis-container.yaml",
+      "redis.yaml",
+      "sqlite-container.yaml",
+      "sqlite.yaml",
       "supabase-container.yaml",
       "supabase.yaml"
     ],
     "devops-integrations": [
+      "docker-mcp-container.yaml",
       "github.yaml",
       "gitlab-container.yaml",
       "gitlab.yaml",
       "kubernetes-container.yaml",
-      "kubernetes.yaml"
+      "kubernetes.yaml",
+      "linear.yaml",
+      "mcp-k8s-container.yaml",
+      "notion-container.yaml",
+      "terraform.yaml"
     ],
     "filesystem-access": [
+      "desktop-commander-container.yaml",
       "filesystem-container.yaml",
       "filesystem.yaml",
       "git-container.yaml",
-      "git.yaml"
+      "git.yaml",
+      "obsidian-container.yaml",
+      "wcgw-container.yaml",
+      "wcgw.yaml"
     ],
     "fully-isolated": [
+      "dice-container.yaml",
       "sequential-thinking-container.yaml",
       "sequential-thinking.yaml",
       "time-container.yaml",
@@ -36,16 +55,21 @@
       "smithery-connect.yaml"
     ],
     "remote-http": [
+      "exa-remote.yaml",
+      "linear-remote.yaml",
       "plantuml.yaml",
       "semgrep.yaml"
     ],
     "remote-sse": [
       "deepwiki.yaml",
+      "exa-sse.yaml",
       "microsoft-learn.yaml"
     ],
     "security-tools": [
       "analyzer-container.yaml",
       "analyzer.yaml",
+      "shodan-container.yaml",
+      "shodan.yaml",
       "snyk-container.yaml",
       "snyk.yaml"
     ],
@@ -54,9 +78,13 @@
       "brave-search.yaml",
       "context7-container.yaml",
       "context7.yaml",
+      "exa-container.yaml",
+      "exa.yaml",
       "fetch-container.yaml",
-      "fetch.yaml"
+      "fetch.yaml",
+      "mcp-webresearch-container.yaml",
+      "playwright-container.yaml"
     ]
   },
-  "updated_at": "2026-03-29T01:42:31.066Z"
+  "updated_at": "2026-03-29T20:00:19.000Z"
 }
