@@ -1,0 +1,11 @@
+name: "Exa Search (remote HTTP)"
+description: "Semantic web search powered by Exa AI. Connects to the hosted Exa MCP endpoint via HTTP with Bearer token authentication."
+# Secrets: EXA_API_KEY — set with: argus-mcp secrets set EXA_API_KEY <your-exa-api-key>
+# Get key at: https://dashboard.exa.ai/api-keys
+# Remote alternative to the local exa-container entry — no Docker required
+
+exa-remote:
+  type: streamable-http
+  url: "https://mcp.exa.ai/mcp"
+  headers:
+    Authorization: "Bearer ${EXA_API_KEY}"

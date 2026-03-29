@@ -1,0 +1,11 @@
+name: "Linear (remote HTTP)"
+description: "Manage Linear issues, projects, and teams via the official Linear hosted MCP server. Connects via HTTP with Bearer token authentication."
+# Secrets: LINEAR_API_KEY — set with: argus-mcp secrets set LINEAR_API_KEY <your-linear-api-key>
+# Get key at: https://linear.app/settings/api
+# Remote alternative to the local linear subprocess entry — no local package install required
+
+linear-remote:
+  type: streamable-http
+  url: "https://mcp.linear.app/sse"
+  headers:
+    Authorization: "Bearer ${LINEAR_API_KEY}"
