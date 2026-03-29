@@ -1,0 +1,13 @@
+name: "Shodan MCP Server"
+description: "Search Shodan for internet-connected devices, open ports, and vulnerabilities. Runs as a subprocess."
+# Secrets: SHODAN_API_KEY — set with: argus-mcp secrets set SHODAN_API_KEY <your-shodan-api-key>
+# Get key at: https://account.shodan.io — requires paid Shodan account for most queries
+
+shodan:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "@burtthecoder/mcp-shodan"
+  env:
+    SHODAN_API_KEY: "${SHODAN_API_KEY}"

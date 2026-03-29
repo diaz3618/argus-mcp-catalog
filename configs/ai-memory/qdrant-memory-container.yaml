@@ -1,0 +1,17 @@
+name: "Qdrant Vector Memory (containerized)"
+description: "Semantic vector search memory for AI assistants using Qdrant. Store and retrieve memories by meaning rather than exact text. Runs in a container with outbound network access to reach your Qdrant instance."
+# Secrets: QDRANT_URL — set with: argus-mcp secrets set QDRANT_URL http://localhost:6333
+# Optional: QDRANT_API_KEY for Qdrant Cloud — argus-mcp secrets set QDRANT_API_KEY <key>
+# COLLECTION_NAME — set with: argus-mcp secrets set COLLECTION_NAME mcp-memory
+
+qdrant-memory-container:
+  type: stdio
+  command: uvx
+  args:
+    - "mcp-server-qdrant"
+  env:
+    QDRANT_URL: "${QDRANT_URL}"
+    COLLECTION_NAME: "${COLLECTION_NAME}"
+  container:
+    enabled: true
+    network: bridge

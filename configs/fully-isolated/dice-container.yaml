@@ -1,0 +1,13 @@
+name: "Dice Roller MCP (containerized)"
+description: "Roll dice and perform tabletop RPG calculations. Pure computation — no network access required. Runs in a fully isolated container."
+# No API keys required — fully offline computation
+
+dice-container:
+  type: stdio
+  command: npx
+  args:
+    - "-y"
+    - "mcp-dice"
+  container:
+    enabled: true
+    network: none
