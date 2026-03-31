@@ -1,0 +1,15 @@
+# NOTE: This is an illustrative example, not a production catalog entry.
+# It demonstrates the container.dockerfile pattern for servers whose build
+# requirements cannot be expressed via source_url or standard transport fields.
+# Real catalog entries live in configs/{category}/.
+
+name: "Custom Dockerfile Demo"
+description: "Example showing container.dockerfile for servers whose build cannot be expressed via source_url or standard transport fields."
+
+custom-dockerfile-demo-container:
+  type: stdio
+  command: python
+  args: ["-m", "demo_server"]
+  container:
+    dockerfile: custom-dockerfile-demo-container.dockerfile
+    network: none
