@@ -262,7 +262,7 @@ Rules:
 | `ai-memory` | Persistent memory and knowledge graph tools for AI assistants |
 | `devops-integrations` | CI/CD, version control platforms, and infrastructure management tools |
 | `security-tools` | Code scanning, vulnerability detection, and security analysis tools |
-| `remote-sse` | Remote MCP servers accessible via SSE or streamable-HTTP with no authentication |
+| `remote-sse` | Remote MCP servers using `type: sse` or `type: streamable-http` with no authentication. Despite the directory name, both transports belong here. |
 | `remote-http` | Remote MCP servers accessible via HTTP requiring a static API token or Bearer header |
 | `remote-auth` | Remote MCP servers requiring OAuth 2.1 PKCE or advanced authentication flows |
 | `fully-isolated` | Tools that work correctly with `network: none` — pure computation, no outbound connections |
