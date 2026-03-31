@@ -295,6 +295,6 @@ Expected output:
 
 ```
 Checking catalog.json...
-Checked 37 files across 10 categories.
+Checked 65 files across 10 categories.
 All checks passed.
 ```
