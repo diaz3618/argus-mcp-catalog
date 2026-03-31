@@ -1,0 +1,14 @@
+{
+  "name": "argus-mcp-catalog",
+  "version": "1.0.0",
+  "description": "Machine-readable MCP server catalog for Argus",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "node scripts/lint-catalog.js",
+    "test": "node scripts/lint-catalog.js"
+  },
+  "devDependencies": {
+    "js-yaml": "^4"
+  }
+}
