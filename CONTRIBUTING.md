@@ -26,7 +26,7 @@ to discover files, then fetches each YAML from GitHub to build the catalog pages
 Every YAML file must have **at minimum** three top-level keys:
 
 ```yaml
-name: "Human-Readable Server Name"
+name: "Server Name"
 description: "One-sentence description of what this MCP server does."
 
 <backend-slug>:
